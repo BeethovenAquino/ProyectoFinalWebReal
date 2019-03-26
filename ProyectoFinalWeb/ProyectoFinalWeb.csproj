@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -67,19 +73,134 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Default.aspx" />
+    <Content Include="Imagenes\1.jpeg" />
+    <Content Include="Imagenes\2.jpeg" />
+    <Content Include="Imagenes\accesorio.jpeg" />
+    <Content Include="Imagenes\delete.ico" />
+    <Content Include="Imagenes\delete_32.png" />
+    <Content Include="Imagenes\icono_login.png" />
+    <Content Include="Imagenes\joyeria.jpg" />
+    <Content Include="Imagenes\login.ico" />
+    <Content Include="Imagenes\login_32.png" />
+    <Content Include="Imagenes\Logo.jpeg" />
+    <Content Include="Imagenes\new.ico" />
+    <Content Include="Imagenes\new_32.png" />
+    <Content Include="Imagenes\Print.ico" />
+    <Content Include="Imagenes\Print_32.png" />
+    <Content Include="Imagenes\restar.ico" />
+    <Content Include="Imagenes\restar_16.png" />
+    <Content Include="Imagenes\save.ico" />
+    <Content Include="Imagenes\save_32.png" />
+    <Content Include="Imagenes\search.ico" />
+    <Content Include="Imagenes\search_32.png" />
+    <Content Include="Imagenes\Sumar.ico" />
+    <Content Include="Imagenes\Sumar_16.png" />
+    <Content Include="UI\Registros\RegistroArticulo.aspx" />
+    <Content Include="UI\Registros\RegistroCliente.aspx" />
+    <Content Include="UI\Registros\RegistroEntradaArticulo.aspx" />
+    <Content Include="UI\Registros\RegistroFacturacion.aspx" />
+    <Content Include="UI\Registros\RegistroInversion.aspx" />
+    <Content Include="UI\Registros\RegistroPagoCliente.aspx" />
+    <Content Include="UI\Registros\RegistroUsuario.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiteMaster.Master.cs">
+      <DependentUpon>SiteMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteMaster.Master.designer.cs">
+      <DependentUpon>SiteMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroArticulo.aspx.cs">
+      <DependentUpon>RegistroArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroArticulo.aspx.designer.cs">
+      <DependentUpon>RegistroArticulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroCliente.aspx.cs">
+      <DependentUpon>RegistroCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroCliente.aspx.designer.cs">
+      <DependentUpon>RegistroCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroEntradaArticulo.aspx.cs">
+      <DependentUpon>RegistroEntradaArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroEntradaArticulo.aspx.designer.cs">
+      <DependentUpon>RegistroEntradaArticulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroFacturacion.aspx.cs">
+      <DependentUpon>RegistroFacturacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroFacturacion.aspx.designer.cs">
+      <DependentUpon>RegistroFacturacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroInversion.aspx.cs">
+      <DependentUpon>RegistroInversion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroInversion.aspx.designer.cs">
+      <DependentUpon>RegistroInversion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroPagoCliente.aspx.cs">
+      <DependentUpon>RegistroPagoCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroPagoCliente.aspx.designer.cs">
+      <DependentUpon>RegistroPagoCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroUsuario.aspx.cs">
+      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroUsuario.aspx.designer.cs">
+      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="SiteMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\Consultas\" />
+    <Folder Include="UI\Reportes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{4890F02B-6AF6-404F-B817-06ABAB91302E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{0F24C37C-9E80-41F9-BA0B-94380A1B08A0}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{A2A7A011-96DC-4D58-B881-80C845A7A7CF}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
