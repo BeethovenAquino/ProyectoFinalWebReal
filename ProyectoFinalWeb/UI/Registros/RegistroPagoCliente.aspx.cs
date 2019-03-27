@@ -21,23 +21,74 @@ namespace ProyectoFinalWeb.UI.Registros
         {
             Expression<Func<Cliente, bool>> filtrar = x => true;
 
+            PrestamoGridView.DataBind();
+            Expression<Func<Cliente, bool>> filtro = x => true;
+            ClienteBLL cliente = new ClienteBLL();
+
+            int id;
+
+
+
             switch (TipodeFiltro.SelectedIndex)
             {
-
-                case 0://ClienteID
-
-                    
-                        if (BLL.ClienteBLL.GetList(filtrar).Count() == 0)
-                        {
-                        Utilities.Utils.ShowToastr(this, "No existe", "Fallido", "error");
-
+                case 0://ID
+                    id = Utilities.Utils.ToInt(CriterioTextbox.Text);
+                    filtro = c => c.ClienteID == id;
+                    if (ClienteBLL.GetList(filtro).Count() == 0)
+                    {
+                        Utilities.Utils.ShowToastr(this, " Prestamo ID No Existe", "Fallido", "success");
                         return;
-                        }
-                    
+                    }
 
                     break;
 
+                case 1:// Nombre
+
+                    filtro = c => c.NombreCliente.Contains(CriterioTextbox.Text);
+
+                    if (ClienteBLL.GetList(filtro).Count() == 0)
+                    {
+                        Utilities.Utils.ShowToastr(this, "Dicho Nombre no existe", "Fallido", "success");
+                        return;
+                    }
+
+                    break;
+
+                case 2:// Marcas
+
+                    filtro = c => c.Cedula.Contains(CriterioTextbox.Text);
+                    if (ClienteBLL.GetList(filtro).Count() == 0)
+                    {
+                        Utilities.Utils.ShowToastr(this, "Dicho Nombre no existe", "Fallido", "success");
+                        return;
+                    }
+
+                    break;
+                case 3:// Cedula
+
+                    filtro = c => c.Telefono.Contains(CriterioTextbox.Text);
+
+
+                    if (ClienteBLL.GetList(filtro).Count() == 0)
+                    {
+                        Utilities.Utils.ShowToastr(this, "Dicho Nombre no existe", "Fallido", "success");
+                        return;
+                    }
+
+                    break;
+
+                case 4://Todos
+
+                    filtro = x => true;
+                    if (ClienteBLL.GetList(filtro).Count() == 0)
+                    {
+                        Utilities.Utils.ShowToastr(this, "No existen Dichas Cuentas", "Fallido", "success");
+                    }
+                    break;
+
             }
+            PrestamoGridView.DataSource = ClienteBLL.GetList(filtro);
+            PrestamoGridView.DataBind();
 
             if (TipodeFiltro.SelectedItem != null)
             {
@@ -117,30 +168,11 @@ namespace ProyectoFinalWeb.UI.Registros
             }
         }
 
-        protected void BuscarButton_Click(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(PagoIDTextbox.Text);
-            Pagos cobros = BLL.PagosBLL.Buscar(id);
-
-
-            if (cobros != null)
-            {
-
-                LlenaCampos(cobros);
-
-
-            }
-            else
-            {
-
-                Utilities.Utils.ShowToastr(this, "No se pudo encontrar", "Fallido", "error");
-                Limpiar();
-            }
-            
-        }
+       
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
+
             Pagos cobros = Llenaclase();
             bool paso = false;
             if (Utilities.Utils.ToInt(PagoIDTextbox.Text) == 0)
@@ -170,6 +202,27 @@ namespace ProyectoFinalWeb.UI.Registros
             else
             {
                 Utilities.Utils.ShowToastr(this, "No se pudo Guardar", "Fallido", "error");
+            }
+        }
+
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(PagoIDTextbox.Text);
+            Pagos cobros = BLL.PagosBLL.Buscar(id);
+
+
+            if (cobros != null)
+            {
+
+                LlenaCampos(cobros);
+
+
+            }
+            else
+            {
+
+                Utilities.Utils.ShowToastr(this, "No se pudo encontrar", "Fallido", "error");
+                Limpiar();
             }
         }
     }

@@ -64,12 +64,9 @@
                                 <label for="TipodeFiltro" style="width: 50px">Filtro:</label>
                                 <div style="width: 220px">
                                     <asp:DropDownList class="form-control" ID="TipodeFiltro" runat="server" for="TipodeFiltro" Width="200px">
-                                        <asp:ListItem>PrestamoID</asp:ListItem>
-                                        <asp:ListItem>CuentaID</asp:ListItem>
-                                        <asp:ListItem>Interes</asp:ListItem>
-                                        <asp:ListItem>Tiempo</asp:ListItem>
-                                        <asp:ListItem>capital</asp:ListItem>
+                                        <asp:ListItem>ClienteID</asp:ListItem>
                                         <asp:ListItem>Todos</asp:ListItem>
+                                        
 
 
                                     </asp:DropDownList>
@@ -121,12 +118,12 @@
                                     <asp:GridView ID="PrestamoGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="false" CellPadding="4" ForeColor="#333333" GridLines="None">
                                         <AlternatingRowStyle BackColor="LightSkyBlue" />
                                         <Columns>
-                                            <asp:BoundField DataField="ClienteID" HeaderText="ClienteID" />
+                                            <asp:BoundField DataField="ClienteID" HeaderText="PagoID" />
                                             <asp:BoundField DataField="NombreCliente" HeaderText="NombreCliente" />
                                             <asp:BoundField DataField="Cedula" HeaderText="Cedula" />
                                             <asp:BoundField DataField="Direccion" HeaderText="Direccion" />
                                             <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
-                                            <asp:BoundField DataField="Total" HeaderText="Total" />
+                                         <asp:BoundField DataField="Total" HeaderText="Total" />
                                             
 
                                         </Columns>

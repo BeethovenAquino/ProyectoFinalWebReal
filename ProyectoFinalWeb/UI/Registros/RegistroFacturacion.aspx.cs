@@ -14,10 +14,8 @@ namespace ProyectoFinalWeb.UI.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             LlenaComboArticulo();
-            TotalTextBox.Text = 0.ToString();
-            SubtotalTextBox.Text = 0.ToString();
+
             
         }
 
@@ -64,7 +62,8 @@ namespace ProyectoFinalWeb.UI.Registros
 
 
             //Cargar el detalle al Grid
-            FacturacionGridView.DataSource = facturacion.Detalle;
+            ViewState["Facturacion"] = facturacion.Detalle;
+            FacturacionGridView.DataSource = ViewState["Facturacion"];
             FacturacionGridView.DataBind();
         }
 
@@ -99,14 +98,14 @@ namespace ProyectoFinalWeb.UI.Registros
 
             Facturacion facturacion = new Facturacion();
 
-            FacturacionDetalle detalle = new FacturacionDetalle();
+            
 
             if (string.IsNullOrEmpty(ImporteTextbox.Text))
             {
                 Utilities.Utils.ShowToastr(this, "Importe esta vacio", "Fallido", "error");
             }
-            
-            if(FacturacionGridView.Rows.Count !=0)
+
+            if (FacturacionGridView.Rows.Count != 0)
             {
                 facturacion.Detalle = (List<FacturacionDetalle>)ViewState["Facturacion"];
             }
@@ -117,12 +116,26 @@ namespace ProyectoFinalWeb.UI.Registros
             int cantidad = Utilities.Utils.ToInt(CantidadTexbox.Text);
             int precio = Utilities.Utils.ToInt(PrecioVentaTextbox.Text);
             int Importe = Utilities.Utils.ToInt(ImporteTextbox.Text);
+          
+          
+            facturacion.Detalle.Add(new FacturacionDetalle(0,Utilities.Utils.ToInt(FacturacionIDTextbox.Text), cliente,articulo,venta.ToString(),cliente.ToString(),articulo.ToString(),cantidad,precio, Importe));
 
+            int subtotal = 0;
+            int total = 0;
+            foreach (var item in facturacion.Detalle)
+            {
+                subtotal += item.Importe;
 
-            facturacion = (Facturacion)ViewState["Facturacion"];
-            facturacions.Add(new FacturacionDetalle(0, detalle.FacturaID, cliente,articulo,venta.ToString(),cliente.ToString(),articulo.ToString(),cantidad,precio, Importe));
+            }
 
-            ViewState["Facturacion"] = facturacions;
+            SubtotalTextBox.Text = subtotal.ToString();
+
+            total += subtotal;
+
+            TotalTextBox.Text = total.ToString();
+
+            ViewState["Facturacion"] = facturacion.Detalle;
+
 
             FacturacionGridView.DataSource = ViewState["Facturacion"];
             FacturacionGridView.DataBind();
@@ -142,22 +155,10 @@ namespace ProyectoFinalWeb.UI.Registros
 
             }
 
-            int subtotal = 0;
-            int total = 0;
-            foreach (var item in facturacions)
-            {
-                subtotal += item.Importe;
-
-            }
-
-            SubtotalTextBox.Text = subtotal.ToString();
-
-            total += subtotal;
-
-            TotalTextBox.Text = total.ToString();
             
-            FacturacionGridView.DataSource = ViewState["Facturacion"];
-            FacturacionGridView.DataBind();
+            
+            //FacturacionGridView.DataSource = ViewState["Facturacion"];
+            //FacturacionGridView.DataBind();
 
 
 
@@ -288,8 +289,9 @@ namespace ProyectoFinalWeb.UI.Registros
                     MontoTextBox.Text = "0";
                     DevueltaTextBox.Text = "0";
                 }
-                Paso = BLL.FacturacionBLL.Guardar(facturacion);
 
+                Paso = BLL.FacturacionBLL.Guardar(facturacion);
+                Limpiar();
             }
             else
             {
@@ -377,12 +379,15 @@ namespace ProyectoFinalWeb.UI.Registros
 
        private void Precio()
         {
-            foreach (var item in BLL.ArticulosBLL.GetList(x => x.Nombre == ArticuloDropDownList.Text))
+            int articulo = Utilities.Utils.ToInt(ArticuloDropDownList.SelectedValue);
+            
+            List<Articulos> A = ArticulosBLL.GetList(x => x.ArticuloID == articulo);
+
+            foreach (var item in A)
 
             {
-                int precio = Utilities.Utils.ToInt(PrecioVentaTextbox.Text.ToString());
-                precio = item.PrecioVenta;
-                PrecioVentaTextbox.Text = precio.ToString();
+                PrecioVentaTextbox.Text = item.PrecioVenta.ToString();
+                    
 
             }
         }

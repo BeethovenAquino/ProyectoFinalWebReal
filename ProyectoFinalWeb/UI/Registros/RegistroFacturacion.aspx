@@ -92,7 +92,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:DropDownList ID="ArticuloDropDownList" CssClass="col-md-12" runat="server"   OnTextChanged="ArticuloDropDownList_TextChanged"></asp:DropDownList>
+                                        <asp:DropDownList ID="ArticuloDropDownList" CssClass="col-md-12" runat="server"   AutoPostBack="true"  OnTextChanged="ArticuloDropDownList_TextChanged"></asp:DropDownList>
                                     </td>
                                     <td>
                                        <%--<asp:DropDownList  ValidationGroup="Guardar" AutoPostBack="true" ID="Cuenta_Id_DropDownList" AppendDataBoundItems="true" CssClass="form-control input-sm" runat="server"></asp:DropDownList>
@@ -115,7 +115,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="CantidadTexbox" runat="server"  class="form-control col-md-12" Height="30" Width="300" MaxLength="80" type="Number" OnTextChanged="CantidadTexbox_TextChanged"></asp:TextBox>
+                                        <asp:TextBox ID="CantidadTexbox" runat="server"  class="form-control col-md-12" Height="30" Width="300" MaxLength="80" type="Number" AutoPostBack="true" OnTextChanged="CantidadTexbox_TextChanged"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RegularExpressionValidator ID="ValidaBalanceNUM" runat="server" ErrorMessage='Campo "Balance" solo acepta numeros' ControlToValidate="CantidadTexbox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
@@ -137,7 +137,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="PrecioVentaTextbox" runat="server" class="form-control col-md-12" Height="30" Width="300" MaxLength="80" type="Number" OnTextChanged="PrecioVentaTextbox_TextChanged"></asp:TextBox>
+                                        <asp:TextBox ID="PrecioVentaTextbox" runat="server" class="form-control col-md-12" Height="30" Width="300" MaxLength="80" AutoPostBack="true" type="Number" OnTextChanged="PrecioVentaTextbox_TextChanged"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RegularExpressionValidator ID="Regularexpressionvalidator1" runat="server" ErrorMessage='Campo "Balance" solo acepta numeros' ControlToValidate="PrecioVentaTextbox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
@@ -160,7 +160,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="ImporteTextbox" runat="server" class="form-control col-md-12" Height="30" Width="300" MaxLength="80" type="Number"></asp:TextBox>
+                                        <asp:TextBox ID="ImporteTextbox" runat="server" class="form-control col-md-12" Height="30" Width="300" MaxLength="80"  AutoPostBack="true" type="Number"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RegularExpressionValidator ID="Regularexpressionvalidator4" runat="server" ErrorMessage='Campo "Balance" solo acepta numeros' ControlToValidate="ImporteTextbox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
@@ -224,7 +224,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="MontoTextBox" runat="server" class="form-control col-md-12" Height="30" Width="300" MaxLength="80" type="Number" OnTextChanged="MontoTextBox_TextChanged"></asp:TextBox>
+                                        <asp:TextBox ID="MontoTextBox" runat="server" class="form-control col-md-12" Height="30" Width="300" MaxLength="80"    type="Number" OnTextChanged="MontoTextBox_TextChanged"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RegularExpressionValidator ID="Regularexpressionvalidator2" runat="server" ErrorMessage='Campo "Monto" solo acepta numeros' ControlToValidate="MontoTextBox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
@@ -246,7 +246,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="DevueltaTextBox" runat="server" class="form-control col-md-12" Height="30" Width="300" MaxLength="80" type="Number"></asp:TextBox>
+                                        <asp:TextBox ID="DevueltaTextBox" runat="server" class="form-control col-md-12" Height="30" Width="300"   MaxLength="80" type="Number" ></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RegularExpressionValidator ID="Regularexpressionvalidator3" runat="server" ErrorMessage='Campo "Devuelta" solo acepta numeros' ControlToValidate="DevueltaTextBox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
@@ -268,7 +268,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="SubtotalTextBox" runat="server" class="form-control col-md-12" Height="30" Width="300" MaxLength="80" type="Number"></asp:TextBox>
+                                        <asp:TextBox ID="SubtotalTextBox" runat="server" class="form-control col-md-12" Height="30" Width="300" AutoPostBack="true" MaxLength="80" type="Number"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RegularExpressionValidator ID="Regularexpressionvalidator5" runat="server" ErrorMessage='Campo "Devuelta" solo acepta numeros' ControlToValidate="SubtotalTextBox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
@@ -290,7 +290,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="TotalTextBox" runat="server" class="form-control col-md-12" Height="30" Width="300" MaxLength="80" type="Number"></asp:TextBox>
+                                        <asp:TextBox ID="TotalTextBox" runat="server" class="form-control col-md-12" Height="30" Width="300" MaxLength="80"  AutoPostBack="true" type="Number"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RegularExpressionValidator ID="Regularexpressionvalidator6" runat="server" ErrorMessage='Campo "Total" solo acepta numeros' ControlToValidate="TotalTextBox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
