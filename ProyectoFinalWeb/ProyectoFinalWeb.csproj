@@ -183,11 +183,21 @@
     <Content Include="UI\Registros\RegistroInversion.aspx" />
     <Content Include="UI\Registros\RegistroPagoCliente.aspx" />
     <Content Include="UI\Registros\RegistroUsuario.aspx" />
+    <Content Include="UI\Reportes\Recibo.aspx" />
+    <Content Include="UI\Reportes\ReporteArticulo.aspx" />
+    <Content Include="UI\Reportes\ReporteCliente.aspx" />
+    <Content Include="UI\Reportes\ReporteFacturacion.aspx" />
+    <Content Include="UI\Reportes\ReporteUsuario.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientesDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientesDbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -195,7 +205,22 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FacturacionDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturacionDbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FacturacionReciboDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturacionReciboDbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProyectoFinalWebDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoFinalWebDbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SiteMaster.Master.cs">
       <DependentUpon>SiteMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -316,9 +341,82 @@
     <Compile Include="UI\Registros\RegistroUsuario.aspx.designer.cs">
       <DependentUpon>RegistroUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\Recibo.aspx.cs">
+      <DependentUpon>Recibo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\Recibo.aspx.designer.cs">
+      <DependentUpon>Recibo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteArticulo.aspx.cs">
+      <DependentUpon>ReporteArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteArticulo.aspx.designer.cs">
+      <DependentUpon>ReporteArticulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteCliente.aspx.cs">
+      <DependentUpon>ReporteCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteCliente.aspx.designer.cs">
+      <DependentUpon>ReporteCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteFacturacion.aspx.cs">
+      <DependentUpon>ReporteFacturacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteFacturacion.aspx.designer.cs">
+      <DependentUpon>ReporteFacturacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteUsuario.aspx.cs">
+      <DependentUpon>ReporteUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteUsuario.aspx.designer.cs">
+      <DependentUpon>ReporteUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsuarioDbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClientesDbDataSet.xsc">
+      <DependentUpon>ClientesDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ClientesDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClientesDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ClientesDbDataSet.xss">
+      <DependentUpon>ClientesDbDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="FacturacionDbDataSet.xsc">
+      <DependentUpon>FacturacionDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="FacturacionDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FacturacionDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="FacturacionDbDataSet.xss">
+      <DependentUpon>FacturacionDbDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="FacturacionReciboDbDataSet.xsc">
+      <DependentUpon>FacturacionReciboDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="FacturacionReciboDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FacturacionReciboDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="FacturacionReciboDbDataSet.xss">
+      <DependentUpon>FacturacionReciboDbDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="SiteMaster.Master" />
     <Content Include="UI\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
@@ -418,6 +516,28 @@
     <Content Include="UI\Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="UI\Login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="UI\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="ProyectoFinalWebDbDataSet.xsc">
+      <DependentUpon>ProyectoFinalWebDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ProyectoFinalWebDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoFinalWebDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ProyectoFinalWebDbDataSet.xss">
+      <DependentUpon>ProyectoFinalWebDbDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="UsuarioDbDataSet.xsc">
+      <DependentUpon>UsuarioDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="UsuarioDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UsuarioDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="UsuarioDbDataSet.xss">
+      <DependentUpon>UsuarioDbDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -425,9 +545,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Reportes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{4890F02B-6AF6-404F-B817-06ABAB91302E}</Project>
@@ -441,6 +559,13 @@
       <Project>{A2A7A011-96DC-4D58-B881-80C845A7A7CF}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Reportes\Articulo.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\Cliente.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\Facturacion.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\ReciboFacturacion.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\Usuario.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

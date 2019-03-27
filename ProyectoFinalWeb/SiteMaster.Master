@@ -77,13 +77,13 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Reporte de Articulos</a>
-                        <a class="dropdown-item" href="#">Reporte de Cliente</a>
-                        <a class="dropdown-item" href="#">Reporte de Usuarios</a>
-                        <a class="dropdown-item" href="#">Registro de Entrada de Ariticulos</a>
-                        <a class="dropdown-item" href="#">Reporte de Entrada de Inversion</a>
-                        <a class="dropdown-item" href="#">Reporte de Facturacion</a>
-                        <a class="dropdown-item" href="#">Reporte Pago De Cliente</a>
+                        <a class="dropdown-item" runat="server" href="~/UI/Reportes/ReporteArticulo.aspx">Reporte de Articulos</a>
+                        <a class="dropdown-item" runat="server" href="~/UI/Reportes/ReporteCliente.aspx">Reporte de Cliente</a>
+                        <a class="dropdown-item" runat="server" href="~/UI/Reportes/ReporteUsuario.aspx">Reporte de Usuarios</a>
+                        <a class="dropdown-item" runat="server" href="#">Registro de Entrada de Ariticulos</a>
+                        <a class="dropdown-item" runat="server" href="#">Reporte de Entrada de Inversion</a>
+                        <a class="dropdown-item" runat="server" href="#">Reporte de Facturacion</a>
+                        <a class="dropdown-item" runat="server" href="#">Reporte Pago De Cliente</a>
                         
                     </div>
                 </li>

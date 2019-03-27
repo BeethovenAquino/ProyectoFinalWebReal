@@ -51,7 +51,7 @@ namespace ProyectoFinalWeb.UI.Consultas
 
                     break;
 
-               
+
 
                 case 1://Todos
 
@@ -74,6 +74,11 @@ namespace ProyectoFinalWeb.UI.Consultas
 
             PrestamoGridView.DataSource = FacturacionBLL.GetList(filtro);
             PrestamoGridView.DataBind();
+        }
+
+        protected void ReporteButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Reportes/ReporteFacturacion.aspx");
         }
     }
 }

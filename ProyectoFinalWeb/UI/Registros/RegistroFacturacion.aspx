@@ -318,7 +318,7 @@
                                 <asp:button id="EliminarButton" runat="server" class="btn btn-danger" text="Eliminar" onclick="EliminarButton_Click" />
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 
-                               <%-- <asp:button id="ReporteButton" runat="server" class="btn btn-success" text="Imrpimir" onclick="ReporteButton_Click" />--%>
+                                <asp:button id="ReporteButton" runat="server" class="btn btn-success" text="Recibo" onclick="ReporteButton_Click" />
                             </div>
                         </div>
                     </div>

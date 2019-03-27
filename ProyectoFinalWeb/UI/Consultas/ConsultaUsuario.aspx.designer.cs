@@ -56,5 +56,14 @@ namespace ProyectoFinalWeb.UI.Consultas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView PrestamoGridView;
+        
+        /// <summary>
+        /// ReporteButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ReporteButton;
     }
 }

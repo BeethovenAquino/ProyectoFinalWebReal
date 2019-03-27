@@ -391,6 +391,11 @@ namespace ProyectoFinalWeb.UI.Registros
         {
             Precio();
         }
+
+        protected void ReporteButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Reportes/Recibo.aspx");
+        }
     }
     }
 

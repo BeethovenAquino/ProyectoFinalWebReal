@@ -88,5 +88,10 @@ namespace ProyectoFinalWeb.UI.Consultas
             PrestamoGridView.DataSource = ClienteBLL.GetList(filtro);
             PrestamoGridView.DataBind();
         }
+
+        protected void ReporteButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Reportes/ReporteCliente.aspx");
+        }
     }
 }
