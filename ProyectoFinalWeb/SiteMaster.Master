@@ -62,13 +62,13 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consultas
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Consultas de Articulos</a>
-                        <a class="dropdown-item" href="#">Consultas de Cliente</a>
-                        <a class="dropdown-item" href="#">Consulta de Usuarios</a>
-                        <a class="dropdown-item" href="#">Consulta de Entrada de Ariticulos</a>
-                        <a class="dropdown-item" href="#">Consulta de Entrada de Inversion</a>
-                        <a class="dropdown-item" href="#">Consulta de Facturacion</a>
-                        <a class="dropdown-item" href="#">Consulta Pago De Cliente</a>
+                        <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsultaArticulo.aspx">Consultas de Articulos</a>
+                        <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsultaCliente.aspx">Consultas de Cliente</a>
+                        <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsultaUsuario.aspx">Consulta de Usuarios</a>
+                        <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsulEntradaArticulo.aspx">Consulta de Entrada de Ariticulos</a>
+                        <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsultaInversion.aspx">Consulta de Entrada de Inversion</a>
+                        <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsultaFacturacion.aspx">Consulta de Facturacion</a>
+                        <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsultaPago.aspx">Consulta Pago De Cliente</a>
                         
                     </div>
                 </li>

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using BLL;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,8 +22,8 @@ namespace ProyectoFinalWeb.UI.Consultas
         protected void ButtonBuscar_Click1(object sender, EventArgs e)
         {
             PrestamoGridView.DataBind();
-            Expression<Func<Prestamo, bool>> filtro = x => true;
-            RepositorioBase<Prestamo> repositorio = new RepositorioBase<Prestamo>();
+            Expression<Func<Articulos, bool>> filtro = x => true;
+            ArticulosBLL articulos = new ArticulosBLL(); 
 
             int id;
 
@@ -34,14 +37,14 @@ namespace ProyectoFinalWeb.UI.Consultas
                     id = Utilities.Utils.ToInt(TextCriterio.Text);
                     if (FechaCheckBox.Checked == true)
                     {
-                        filtro = x => x.PrestamoID == id && (x.Fecha >= desde && x.Fecha <= hasta);
+                        filtro = x => x.ArticuloID == id && (x.Fecha >= desde && x.Fecha <= hasta);
                     }
                     else
                     {
-                        filtro = c => c.PrestamoID == id;
+                        filtro = c => c.ArticuloID == id;
                     }
 
-                    if (repositorio.GetList(filtro).Count() == 0)
+                    if (ArticulosBLL.GetList(filtro).Count() == 0)
                     {
                         Utilities.Utils.ShowToastr(this, " Prestamo ID No Existe", "Fallido", "success");
                         return;
@@ -49,81 +52,44 @@ namespace ProyectoFinalWeb.UI.Consultas
 
                     break;
 
-                case 1:// CuentaId
-                    int cuentaid = Utilities.Utils.ToInt(TextCriterio.Text);
+                case 1:// Nombre
+
                     if (FechaCheckBox.Checked == true)
                     {
-                        filtro = x => x.CuentaID == cuentaid && (x.Fecha >= desde && x.Fecha <= hasta);
+                        filtro = x => x.Nombre.Contains(TextCriterio.Text) && (x.Fecha >= desde && x.Fecha <= hasta);
                     }
                     else
                     {
-                        filtro = c => c.CuentaID == cuentaid;
+                        filtro = c => c.Nombre.Contains(TextCriterio.Text);
                     }
 
-                    if (repositorio.GetList(filtro).Count() == 0)
+                    if (ArticulosBLL.GetList(filtro).Count() == 0)
                     {
-                        Utilities.Utils.ShowToastr(this, "Cuenta ID No Existe", "Fallido", "success");
+                        Utilities.Utils.ShowToastr(this, "Dicho Nombre no existe", "Fallido", "success");
+                        return;
                     }
 
                     break;
 
-                case 2:// Interes
-                    decimal interes = Utilities.Utils.ToDecimal(TextCriterio.Text);
+                case 2:// Marca
                     if (FechaCheckBox.Checked == true)
                     {
-                        filtro = x => x.Interes == interes && (x.Fecha >= desde && x.Fecha <= hasta);
+                        filtro = x => x.Marca.Contains(TextCriterio.Text) && (x.Fecha >= desde && x.Fecha <= hasta);
                     }
                     else
                     {
-                        filtro = c => c.Interes == interes;
+                        filtro = c => c.Marca.Contains(TextCriterio.Text);
                     }
 
-                    if (repositorio.GetList(filtro).Count() == 0)
+                    if (ArticulosBLL.GetList(filtro).Count() == 0)
                     {
-                        Utilities.Utils.ShowToastr(this, "Interes No existe", "Fallido", "success");
+                        Utilities.Utils.ShowToastr(this, "Dicho Nombre no existe", "Fallido", "success");
+                        return;
                     }
 
                     break;
-
-
-
-                case 3:// Monto
-                    decimal tiempo = Utilities.Utils.ToDecimal(TextCriterio.Text);
-                    if (FechaCheckBox.Checked == true)
-                    {
-                        filtro = x => x.Tiempo == tiempo && (x.Fecha >= desde && x.Fecha <= hasta);
-                    }
-                    else
-                    {
-                        filtro = c => c.Tiempo == tiempo;
-                    }
-
-                    if (repositorio.GetList(filtro).Count() == 0)
-                    {
-                        Utilities.Utils.ShowToastr(this, "Tiempo No existe", "Fallido", "success");
-                    }
-
-                    break;
-
-                case 4:// Monto
-                    decimal capital = Utilities.Utils.ToDecimal(TextCriterio.Text);
-                    if (FechaCheckBox.Checked == true)
-                    {
-                        filtro = x => x.Capital == capital && (x.Fecha >= desde && x.Fecha <= hasta);
-                    }
-                    else
-                    {
-                        filtro = c => c.Capital == capital;
-                    }
-
-                    if (repositorio.GetList(filtro).Count() == 0)
-                    {
-                        Utilities.Utils.ShowToastr(this, "Capital No existe", "Fallido", "success");
-                    }
-
-                    break;
-
-                case 5://Todos
+                    
+                case 3://Todos
 
                     if (FechaCheckBox.Checked == true)
                     {
@@ -134,7 +100,7 @@ namespace ProyectoFinalWeb.UI.Consultas
                         filtro = x => true;
                     }
 
-                    if (repositorio.GetList(filtro).Count() == 0)
+                    if (ArticulosBLL.GetList(filtro).Count() == 0)
                     {
                         Utilities.Utils.ShowToastr(this, "No existen Dichas Cuentas", "Fallido", "success");
                     }
@@ -142,7 +108,7 @@ namespace ProyectoFinalWeb.UI.Consultas
 
             }
 
-            PrestamoGridView.DataSource = repositorio.GetList(filtro);
+            PrestamoGridView.DataSource = ArticulosBLL.GetList(filtro);
             PrestamoGridView.DataBind();
         }
     }

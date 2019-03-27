@@ -133,7 +133,13 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="UI\Consultas\ConsulEntradaArticulo.aspx" />
     <Content Include="UI\Consultas\ConsultaArticulo.aspx" />
+    <Content Include="UI\Consultas\ConsultaCliente.aspx" />
+    <Content Include="UI\Consultas\ConsultaFacturacion.aspx" />
+    <Content Include="UI\Consultas\ConsultaInversion.aspx" />
+    <Content Include="UI\Consultas\ConsultaPago.aspx" />
+    <Content Include="UI\Consultas\ConsultaUsuario.aspx" />
     <Content Include="UI\Login\css\main.css" />
     <Content Include="UI\Login\css\util.css" />
     <Content Include="UI\Login\fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -198,12 +204,54 @@
       <DependentUpon>SiteMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UI\Consultas\ConsulEntradaArticulo.aspx.cs">
+      <DependentUpon>ConsulEntradaArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsulEntradaArticulo.aspx.designer.cs">
+      <DependentUpon>ConsulEntradaArticulo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consultas\ConsultaArticulo.aspx.cs">
       <DependentUpon>ConsultaArticulo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI\Consultas\ConsultaArticulo.aspx.designer.cs">
       <DependentUpon>ConsultaArticulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaCliente.aspx.cs">
+      <DependentUpon>ConsultaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaCliente.aspx.designer.cs">
+      <DependentUpon>ConsultaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaFacturacion.aspx.cs">
+      <DependentUpon>ConsultaFacturacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaFacturacion.aspx.designer.cs">
+      <DependentUpon>ConsultaFacturacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaInversion.aspx.cs">
+      <DependentUpon>ConsultaInversion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaInversion.aspx.designer.cs">
+      <DependentUpon>ConsultaInversion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaPago.aspx.cs">
+      <DependentUpon>ConsultaPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaPago.aspx.designer.cs">
+      <DependentUpon>ConsultaPago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaUsuario.aspx.cs">
+      <DependentUpon>ConsultaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaUsuario.aspx.designer.cs">
+      <DependentUpon>ConsultaUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
