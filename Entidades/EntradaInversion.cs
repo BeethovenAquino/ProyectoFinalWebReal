@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-
+    [Serializable()]
     public class EntradaInversion
     {
         [Key]

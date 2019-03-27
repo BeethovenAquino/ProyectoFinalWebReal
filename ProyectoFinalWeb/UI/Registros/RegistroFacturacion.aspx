@@ -46,7 +46,10 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:DropDownList ID="VentaDropDownList" CssClass="col-md-12" runat="server" OnSelectedIndexChanged="VentaDropDownList_SelectedIndexChanged"></asp:DropDownList>
+                                        <asp:DropDownList ID="VentaDropDownList" CssClass="col-md-12" runat="server" OnSelectedIndexChanged="VentaDropDownList_SelectedIndexChanged">
+                                            <asp:ListItem>Contado</asp:ListItem>
+                                            <asp:ListItem>Credito</asp:ListItem>
+                                        </asp:DropDownList>
                                     </td>
                                     <td>
                                        <%--<asp:DropDownList  ValidationGroup="Guardar" AutoPostBack="true" ID="Cuenta_Id_DropDownList" AppendDataBoundItems="true" CssClass="form-control input-sm" runat="server"></asp:DropDownList>
@@ -89,7 +92,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:DropDownList ID="ArticuloDropDownList" CssClass="col-md-12" runat="server"></asp:DropDownList>
+                                        <asp:DropDownList ID="ArticuloDropDownList" CssClass="col-md-12" runat="server"   OnTextChanged="ArticuloDropDownList_TextChanged"></asp:DropDownList>
                                     </td>
                                     <td>
                                        <%--<asp:DropDownList  ValidationGroup="Guardar" AutoPostBack="true" ID="Cuenta_Id_DropDownList" AppendDataBoundItems="true" CssClass="form-control input-sm" runat="server"></asp:DropDownList>

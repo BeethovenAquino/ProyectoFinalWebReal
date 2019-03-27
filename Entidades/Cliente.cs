@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-   public class Cliente
+    [Serializable()]
+    public class Cliente
     {
         [Key]
         public int ClienteID { get; set; }

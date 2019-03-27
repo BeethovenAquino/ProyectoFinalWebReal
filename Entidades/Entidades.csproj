@@ -48,7 +48,7 @@
     <Compile Include="EntradaInversion.cs" />
     <Compile Include="Facturacion.cs" />
     <Compile Include="FacturacionDetalle.cs" />
-    <Compile Include="Inversion.cs" />
+    <Compile Include="Inversionn.cs" />
     <Compile Include="Pagos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios.cs" />

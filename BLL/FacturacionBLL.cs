@@ -219,7 +219,7 @@ namespace BLL
                     diferenc = facturacion.Total - EntradaAnteri.Total;
 
                     //aplicar diferencia al inventario
-                    Inversion fact = InversionBLL.Buscar(facturacion.InversionID);
+                    Inversionn fact = InversionBLL.Buscar(facturacion.InversionID);
                     fact.Monto += diferenc;
                     InversionBLL.Modificar(fact);
 
@@ -248,7 +248,7 @@ namespace BLL
                 diferenci = facturacion.Total - EntradaAnterio.Total;
 
                 //aplicar diferencia al inventario
-                Inversion factu = InversionBLL.Buscar(facturacion.InversionID);
+                Inversionn factu = InversionBLL.Buscar(facturacion.InversionID);
                 factu.Monto += diferenci;
                 InversionBLL.Modificar(factu);
 

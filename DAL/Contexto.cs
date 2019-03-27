@@ -15,7 +15,7 @@ namespace DAL
         public DbSet<Facturacion> Facturacion { get; set; }
         public DbSet<EntradaArticulos> EntradaArticulos { get; set; }
         public DbSet<EntradaInversion> entradaInversion { get; set; }
-        public DbSet<Inversion> inversion { get; set; }
+        public DbSet<Inversionn> inversion { get; set; }
         public DbSet<Usuarios> usuarios { get; set; }
         public DbSet<Pagos> pagos { get; set; }
 

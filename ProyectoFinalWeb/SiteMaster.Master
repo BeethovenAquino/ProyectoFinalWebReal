@@ -46,7 +46,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registros
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" runat="server" href="#">Inversion de la empresa</a>
+                        <a class="dropdown-item" runat="server" href="~/UI/Registros/Inversion.aspx">Inversion de la empresa</a>
                         <a class="dropdown-item" runat="server" href="~/UI/Registros/RegistroArticulo.aspx">Registro de Articulos</a>
                         <a class="dropdown-item" runat="server" href="~/UI/Registros/RegistroCliente.aspx">Registro de Cliente</a>
                         <a class="dropdown-item" runat="server" href="~/UI/Registros/RegistroUsuario.aspx">Registro de Usuarios</a>

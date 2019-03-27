@@ -14,9 +14,11 @@ namespace ProyectoFinalWeb.UI.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             LlenaComboArticulo();
             TotalTextBox.Text = 0.ToString();
             SubtotalTextBox.Text = 0.ToString();
+            
         }
 
         private void LlenaComboArticulo()
@@ -93,82 +95,87 @@ namespace ProyectoFinalWeb.UI.Registros
 
         protected void AgregarButton_Click(object sender, EventArgs e)
         {
-            List<FacturacionDetalle> detalle = new List<FacturacionDetalle>();
+            List<FacturacionDetalle> facturacions = new List<FacturacionDetalle>();
 
+            Facturacion facturacion = new Facturacion();
 
-
-            if (FacturacionGridView.DataSource != null)
-            {
-                detalle = (List<FacturacionDetalle>)FacturacionGridView.DataSource;
-            }
-
+            FacturacionDetalle detalle = new FacturacionDetalle();
 
             if (string.IsNullOrEmpty(ImporteTextbox.Text))
             {
                 Utilities.Utils.ShowToastr(this, "Importe esta vacio", "Fallido", "error");
             }
-            else
+            
+            if(FacturacionGridView.Rows.Count !=0)
             {
-                detalle.Add(
-                    new FacturacionDetalle(iD: 0,
-                    facturaID: (int)Convert.ToInt32(FacturacionIDTextbox.Text),
-                    venta: (string)VentaDropDownList.Text,
-                    clienteID: (int)ClienteDropDownList.SelectedIndex,
-                       cliente: (string)ClienteDropDownList.Text,
-                            articuloID: (int)ArticuloDropDownList.SelectedIndex,
-                            articulo: (string)ArticuloDropDownList.Text,
+                facturacion.Detalle = (List<FacturacionDetalle>)ViewState["Facturacion"];
+            }
 
-                        cantidad: Convert.ToInt32(CantidadTexbox.Text),
-                        precio: Convert.ToInt32(PrecioVentaTextbox.Text),
-                        importe: Convert.ToInt32(ImporteTextbox.Text)
-                    ));
+            int cliente = Utilities.Utils.ToInt(ClienteDropDownList.SelectedValue);
+            int articulo = Utilities.Utils.ToInt(ArticuloDropDownList.SelectedValue);
+            int venta = Utilities.Utils.ToInt(VentaDropDownList.SelectedValue);
+            int cantidad = Utilities.Utils.ToInt(CantidadTexbox.Text);
+            int precio = Utilities.Utils.ToInt(PrecioVentaTextbox.Text);
+            int Importe = Utilities.Utils.ToInt(ImporteTextbox.Text);
 
+
+            facturacion = (Facturacion)ViewState["Facturacion"];
+            facturacions.Add(new FacturacionDetalle(0, detalle.FacturaID, cliente,articulo,venta.ToString(),cliente.ToString(),articulo.ToString(),cantidad,precio, Importe));
+
+            ViewState["Facturacion"] = facturacions;
+
+            FacturacionGridView.DataSource = ViewState["Facturacion"];
+            FacturacionGridView.DataBind();
+            MontoTextBox.Text = "";
+            if (VentaDropDownList.SelectedIndex == 0)
+            {
 
                 FacturacionGridView.DataSource = null;
-                FacturacionGridView.DataSource = detalle;
-
-                //this.ArticulosStock.Find(art => art.ArticuloID ==
-                //    (int)ArticulocomboBox.SelectedValue).Vigencia -= Convert.ToInt32(CantidadnumericUpDown.Value);
-
-                //ActualizarCombobox();
-
-                if (VentaDropDownList.SelectedIndex == 0)
-                {
-
-                    FacturacionGridView.DataSource = null;
-                    FacturacionGridView.DataSource = detalle;
+                FacturacionGridView.DataSource = facturacions;
 
 
-                }
-                else
-                if (VentaDropDownList.SelectedIndex == 1)
-                {
-
-                }
-
-                int subtotal = 0;
-                int total = 0;
-                foreach (var item in detalle)
-                {
-                    subtotal += item.Importe;
-
-                }
-
-                SubtotalTextBox.Text = subtotal.ToString();
-
-                total += subtotal;
-
-                TotalTextBox.Text = total.ToString();
             }
+            else
+            if (VentaDropDownList.SelectedIndex == 1)
+            {
+                MontoTextBox.Text = "0";
+
+            }
+
+            int subtotal = 0;
+            int total = 0;
+            foreach (var item in facturacions)
+            {
+                subtotal += item.Importe;
+
+            }
+
+            SubtotalTextBox.Text = subtotal.ToString();
+
+            total += subtotal;
+
+            TotalTextBox.Text = total.ToString();
+            
+            FacturacionGridView.DataSource = ViewState["Facturacion"];
+            FacturacionGridView.DataBind();
+
+
+
         }
+
+      
+        
 
         protected void CantidadTexbox_TextChanged(object sender, EventArgs e)
         {
-            int cantidad = Convert.ToInt32(CantidadTexbox.Text.ToString());
-            int precio = Convert.ToInt32(PrecioVentaTextbox.Text.ToString());
+            Precio(); 
+            int cantidad = Utilities.Utils.ToInt(CantidadTexbox.Text.ToString());
+            int precio = Utilities.Utils.ToInt(PrecioVentaTextbox.Text.ToString());
             int importe = Utilities.Utils.ToInt(ImporteTextbox.Text.ToString());
 
             importe = FacturacionBLL.CalcularImporte(precio, cantidad);
+
+            ImporteTextbox.Text = importe.ToString();
         }
 
         protected void PrecioVentaTextbox_TextChanged(object sender, EventArgs e)
@@ -178,6 +185,8 @@ namespace ProyectoFinalWeb.UI.Registros
             int importe = Utilities.Utils.ToInt(ImporteTextbox.Text.ToString());
 
             importe = FacturacionBLL.CalcularImporte(precio, cantidad);
+            ImporteTextbox.Text = importe.ToString();
+
         }
 
         protected void RemoverButton_Click(object sender, EventArgs e)
@@ -235,7 +244,7 @@ namespace ProyectoFinalWeb.UI.Registros
         {
             Facturacion facturacion = LlenaClase();
             Contexto contexto = new Contexto();
-            Inversion inversion = new Inversion();
+            Inversionn inversion = new Inversionn();
             Cliente cliente = new Cliente();
 
             Facturacion Facturacion = new Facturacion();
@@ -269,12 +278,15 @@ namespace ProyectoFinalWeb.UI.Registros
             }
 
 
-            if (FacturacionGridView.SelectedIndex == 0)
+            if (Utilities.Utils.ToInt( FacturacionIDTextbox.Text) == 0)
             {
                 if (VentaDropDownList.SelectedIndex == 1)
                 {
                     MontoTextBox.Enabled = false;
                     DevueltaTextBox.Enabled = false;
+
+                    MontoTextBox.Text = "0";
+                    DevueltaTextBox.Text = "0";
                 }
                 Paso = BLL.FacturacionBLL.Guardar(facturacion);
 
@@ -315,6 +327,9 @@ namespace ProyectoFinalWeb.UI.Registros
                 MontoTextBox.Enabled = false;
                 DevueltaTextBox.Enabled = false;
 
+                MontoTextBox.Text = "0";
+                DevueltaTextBox.Text = "0";
+
             }
         }
 
@@ -335,16 +350,46 @@ namespace ProyectoFinalWeb.UI.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(FacturacionIDTextbox.Text);
-            Facturacion facturacion = BLL.FacturacionBLL.Buscar(id);
+            
+            Facturacion prestamo = FacturacionBLL.Buscar(Utilities.Utils.ToInt(FacturacionIDTextbox.Text));
 
-            if (facturacion != null)
+            Limpiar();
+            if (prestamo != null)
             {
-                LlenarCampos(facturacion);
+                LlenarCampos(prestamo);
 
+                Utilities.Utils.ShowToastr(this, "Se ha Encontrado su deposito", "Exito", "Exito");
             }
             else
-                Utilities.Utils.ShowToastr(this, "No se pudo Encontrar", "Fallido", "error");
+            {
+                Utilities.Utils.ShowToastr(this, "el ID registrado no existe", "Error", "error");
+            }
+
+        }
+
+        //protected void ArticuloDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //    Response.Write("<script> alert('Hola');</script>");
+
+
+        //}
+
+       private void Precio()
+        {
+            foreach (var item in BLL.ArticulosBLL.GetList(x => x.Nombre == ArticuloDropDownList.Text))
+
+            {
+                int precio = Utilities.Utils.ToInt(PrecioVentaTextbox.Text.ToString());
+                precio = item.PrecioVenta;
+                PrecioVentaTextbox.Text = precio.ToString();
+
+            }
+        }
+
+        protected void ArticuloDropDownList_TextChanged(object sender, EventArgs e)
+        {
+            Precio();
         }
     }
     }

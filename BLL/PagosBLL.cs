@@ -98,7 +98,7 @@ namespace BLL
                 Cliente cliente = ClienteBLL.Buscar(pagos.ClienteID);
                 cliente.Total = Math.Abs(cliente.Total - diferencia);
 
-                Inversion negocio = BLL.InversionBLL.Buscar(pagos.InversionID);
+                Inversionn negocio = BLL.InversionBLL.Buscar(pagos.InversionID);
                 if (Anterior.Abono < pagos.Abono)
                 {
 

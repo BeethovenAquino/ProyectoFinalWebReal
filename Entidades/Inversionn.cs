@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Inversion
+    [Serializable()]
+    public class Inversionn
     {
         [Key]
         public int InversionID { get; set; }
         public decimal Monto { get; set; }
 
-        public Inversion()
+        public Inversionn()
         {
             InversionID = 0;
             Monto = 0;

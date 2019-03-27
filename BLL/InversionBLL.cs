@@ -12,7 +12,7 @@ namespace BLL
 {
     public class InversionBLL
     {
-        public static bool Guardar(Inversion inversion)
+        public static bool Guardar(Inversionn inversion)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -36,7 +36,7 @@ namespace BLL
 
 
 
-        public static bool Modificar(Inversion inversion)
+        public static bool Modificar(Inversionn inversion)
         {
 
             bool paso = false;
@@ -67,7 +67,7 @@ namespace BLL
 
             try
             {
-                Inversion inversion = contexto.inversion.Find(id);
+                Inversionn inversion = contexto.inversion.Find(id);
 
                 if (inversion != null)
                 {
@@ -88,10 +88,10 @@ namespace BLL
         }
 
 
-        public static Inversion Buscar(int id)
+        public static Inversionn Buscar(int id)
         {
 
-            Inversion inversion = new Inversion();
+            Inversionn inversion = new Inversionn();
             Contexto contexto = new Contexto();
 
             try
@@ -106,9 +106,9 @@ namespace BLL
 
 
 
-        public static List<Inversion> GetList(Expression<Func<Inversion, bool>> expression)
+        public static List<Inversionn> GetList(Expression<Func<Inversionn, bool>> expression)
         {
-            List<Inversion> inversion = new List<Inversion>();
+            List<Inversionn> inversion = new List<Inversionn>();
             Contexto contexto = new Contexto();
 
             try

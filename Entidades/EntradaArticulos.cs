@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-   public class EntradaArticulos
+    [Serializable()]
+    public class EntradaArticulos
     {
+        
         [Key]
         public int EntradaArticulosID { get; set; }
         public string Articulo { get; set; }
