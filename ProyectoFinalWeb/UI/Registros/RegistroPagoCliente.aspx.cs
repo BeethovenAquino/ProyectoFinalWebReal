@@ -12,9 +12,17 @@ namespace ProyectoFinalWeb.UI.Registros
 {
     public partial class RegistroPagoCliente : System.Web.UI.Page
     {
+        List<Cliente> clientes = new List<Cliente>();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                ViewState.Add("Detalle", new List<Cliente>());
+            }
+            else
+            {
+                clientes = (List<Cliente>)ViewState["Detalle"];
+            }
         }
 
         protected void ButtonBuscar_Click1(object sender, EventArgs e)
@@ -88,6 +96,8 @@ namespace ProyectoFinalWeb.UI.Registros
 
             }
             PrestamoGridView.DataSource = ClienteBLL.GetList(filtro);
+            ViewState["Detalle"] = ClienteBLL.GetList(filtro);
+            clientes= ClienteBLL.GetList(filtro);
             PrestamoGridView.DataBind();
 
             if (TipodeFiltro.SelectedItem != null)
@@ -132,7 +142,8 @@ namespace ProyectoFinalWeb.UI.Registros
         private Pagos Llenaclase()
         {
             Pagos pagos = new Pagos();
-            List<Cliente> detalle = (List<Cliente>)PrestamoGridView.DataSource;
+            List<Cliente> detalle = (List<Cliente>)ViewState["Detalle"];
+
 
             int id = detalle.ElementAt(PrestamoGridView.SelectedRow.RowIndex).ClienteID;
 

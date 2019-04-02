@@ -519,6 +519,10 @@
     <Content Include="ProyectoFinalWebDbDataSet.xsc">
       <DependentUpon>ProyectoFinalWebDbDataSet.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\PoryectoBAcessories - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\PoryectoBAcessories - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ProyectoFinalWeb - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ProyectoFinalWeb - Web Deploy.pubxml" />
     <None Include="ProyectoFinalWebDbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ProyectoFinalWebDbDataSet.Designer.cs</LastGenOutput>
@@ -561,11 +565,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="UI\Reportes\Articulo.rdlc" />
-    <EmbeddedResource Include="UI\Reportes\Cliente.rdlc" />
-    <EmbeddedResource Include="UI\Reportes\Facturacion.rdlc" />
-    <EmbeddedResource Include="UI\Reportes\ReciboFacturacion.rdlc" />
-    <EmbeddedResource Include="UI\Reportes\Usuario.rdlc" />
+    <Content Include="UI\Reportes\Articulo.rdlc" />
+    <Content Include="UI\Reportes\Cliente.rdlc" />
+    <Content Include="UI\Reportes\Facturacion.rdlc" />
+    <Content Include="UI\Reportes\ReciboFacturacion.rdlc" />
+    <Content Include="UI\Reportes\Usuario.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

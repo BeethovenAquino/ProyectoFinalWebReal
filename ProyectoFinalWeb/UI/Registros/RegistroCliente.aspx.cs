@@ -35,9 +35,9 @@ namespace ProyectoFinalWeb.UI.Registros
             ClienteIDTextbox.Text = "";
             NombreClienteTextbox.Text = "";
             CedulaTextbox.Text = "";
-            DireccionTextbox.Text = "0";
-            TelefonoTextbox.Text = "0";
-            DeudaTextbox.Text = "0";
+            DireccionTextbox.Text = "";
+            TelefonoTextbox.Text = "";
+            DeudaTextbox.Text = "";
             
         }
 

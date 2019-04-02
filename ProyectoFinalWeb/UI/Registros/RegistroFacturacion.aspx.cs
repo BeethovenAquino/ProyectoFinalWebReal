@@ -16,7 +16,7 @@ namespace ProyectoFinalWeb.UI.Registros
         {
             LlenaComboArticulo();
 
-            
+
         }
 
         private void LlenaComboArticulo()
@@ -98,7 +98,7 @@ namespace ProyectoFinalWeb.UI.Registros
 
             Facturacion facturacion = new Facturacion();
 
-            
+
 
             if (string.IsNullOrEmpty(ImporteTextbox.Text))
             {
@@ -116,9 +116,9 @@ namespace ProyectoFinalWeb.UI.Registros
             int cantidad = Utilities.Utils.ToInt(CantidadTexbox.Text);
             int precio = Utilities.Utils.ToInt(PrecioVentaTextbox.Text);
             int Importe = Utilities.Utils.ToInt(ImporteTextbox.Text);
-          
-          
-            facturacion.Detalle.Add(new FacturacionDetalle(0,Utilities.Utils.ToInt(FacturacionIDTextbox.Text), cliente,articulo,venta.ToString(),cliente.ToString(),articulo.ToString(),cantidad,precio, Importe));
+
+
+            facturacion.Detalle.Add(new FacturacionDetalle(0, Utilities.Utils.ToInt(FacturacionIDTextbox.Text), cliente, articulo, venta.ToString(), cliente.ToString(), articulo.ToString(), cantidad, precio, Importe));
 
             int subtotal = 0;
             int total = 0;
@@ -155,8 +155,8 @@ namespace ProyectoFinalWeb.UI.Registros
 
             }
 
-            
-            
+
+
             //FacturacionGridView.DataSource = ViewState["Facturacion"];
             //FacturacionGridView.DataBind();
 
@@ -164,12 +164,12 @@ namespace ProyectoFinalWeb.UI.Registros
 
         }
 
-      
-        
+
+
 
         protected void CantidadTexbox_TextChanged(object sender, EventArgs e)
         {
-            Precio(); 
+            Precio();
             int cantidad = Utilities.Utils.ToInt(CantidadTexbox.Text.ToString());
             int precio = Utilities.Utils.ToInt(PrecioVentaTextbox.Text.ToString());
             int importe = Utilities.Utils.ToInt(ImporteTextbox.Text.ToString());
@@ -250,21 +250,21 @@ namespace ProyectoFinalWeb.UI.Registros
 
             Facturacion Facturacion = new Facturacion();
             bool Paso = false;
-        
 
-            
-            
-            
-                foreach (var item in BLL.InversionBLL.GetList(x => x.InversionID == 1))
+
+
+
+
+            foreach (var item in BLL.InversionBLL.GetList(x => x.InversionID == 1))
+            {
+
+                if (item.Monto < Convert.ToDecimal(TotalTextBox.Text))
                 {
-
-                    if (item.Monto < Convert.ToDecimal(TotalTextBox.Text))
-                    {
-                        Utilities.Utils.ShowToastr(this, "Mi empresa no contiene esa cantidad de dinero", "Fallido", "error");
-                        return;
-                    }
+                    Utilities.Utils.ShowToastr(this, "Mi empresa no contiene esa cantidad de dinero", "Fallido", "error");
+                    return;
                 }
-            
+            }
+
 
             if (VentaDropDownList.SelectedIndex == 0)
             {
@@ -279,7 +279,7 @@ namespace ProyectoFinalWeb.UI.Registros
             }
 
 
-            if (Utilities.Utils.ToInt( FacturacionIDTextbox.Text) == 0)
+            if (Utilities.Utils.ToInt(FacturacionIDTextbox.Text) == 0)
             {
                 if (VentaDropDownList.SelectedIndex == 1)
                 {
@@ -337,9 +337,9 @@ namespace ProyectoFinalWeb.UI.Registros
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            
-           
-                int id = Convert.ToInt32(FacturacionIDTextbox.Text);
+
+
+            int id = Convert.ToInt32(FacturacionIDTextbox.Text);
             if (BLL.FacturacionBLL.Eliminar(id))
             {
                 Utilities.Utils.ShowToastr(this, "Eliminado", "exito", "exito");
@@ -348,11 +348,11 @@ namespace ProyectoFinalWeb.UI.Registros
 
             else
                 Utilities.Utils.ShowToastr(this, "No se pudo Eliminar", "Fallido", "error");
-            }
+        }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            
+
             Facturacion prestamo = FacturacionBLL.Buscar(Utilities.Utils.ToInt(FacturacionIDTextbox.Text));
 
             Limpiar();
@@ -377,17 +377,17 @@ namespace ProyectoFinalWeb.UI.Registros
 
         //}
 
-       private void Precio()
+        private void Precio()
         {
             int articulo = Utilities.Utils.ToInt(ArticuloDropDownList.SelectedValue);
-            
+
             List<Articulos> A = ArticulosBLL.GetList(x => x.ArticuloID == articulo);
 
             foreach (var item in A)
 
             {
                 PrecioVentaTextbox.Text = item.PrecioVenta.ToString();
-                    
+
 
             }
         }
@@ -401,6 +401,42 @@ namespace ProyectoFinalWeb.UI.Registros
         {
             Response.Redirect("../Reportes/Recibo.aspx");
         }
+
+        protected void FacturacionGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+                e.Row.Attributes.Add("OnClick", "" + ClientScript.GetPostBackClientHyperlink(FacturacionGridView, "Select$" + e.Row.RowIndex.ToString()) + ";");
+        }
+
+        protected void FacturacionGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Tienes que darle clic a la fila para que se seleccione
+            GridViewRow row = FacturacionGridView.SelectedRow;
+            ViewState["IndexDetalle"] = row.RowIndex;
+        }
+
+        protected void EliminarButtonDetalle_Click(object sender, EventArgs e)
+        {
+            if(ViewState["IndexDetalle"] !=null)
+            {
+                var Importe = ((List<FacturacionDetalle>)ViewState["Facturacion"]).ElementAt((int)ViewState["IndexDetalle"]).Importe;
+                //Todo: Con esta variable tienes que restarsela al el monto total 
+
+                //Aqui restalo 
+
+
+                //Aqui estoy elimianndo de el ViewState 
+                ((List<FacturacionDetalle>)ViewState["Facturacion"]).RemoveAt((int)ViewState["IndexDetalle"]);
+
+                FacturacionGridView.DataSource = ViewState["Facturacion"];
+                FacturacionGridView.DataBind();
+
+            }
+            else
+            {
+                //aqui
+            }
+        }
     }
-    }
+}
 

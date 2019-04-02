@@ -1,7 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="RegistroCliente.aspx.cs" Inherits="ProyectoFinalWeb.UI.Registros.RegistroCliente" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    
       <div class="form-group container">
         <div class="row">
             <div class="col-sm-12">
@@ -70,7 +73,8 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:textbox id="CedulaTextbox"  validationgroup="Guardar" runat="server" class="form-control" height="30" width="300" maxlength="50" type="Cedula"  ></asp:textbox>
+                                        <asp:textbox id="CedulaTextbox"  validationgroup="Guardar" runat="server" class="form-control" height="30" width="300" maxlength="50" type="Cedula "  ></asp:textbox>
+                                        
                                     </td>
                                     <td>
                                         <asp:requiredfieldvalidator id="RequiredFieldValidator4" runat="server" errormessage="Campos Obligatorios" controltovalidate="CedulaTextbox" font-bold="True" forecolor="Red" validationgroup="Guardar">*</asp:requiredfieldvalidator>
@@ -140,6 +144,7 @@
                                 <tr>
                                     <td>
                                         <asp:textbox id="TelefonoTextbox"  validationgroup="Guardar" runat="server" class="form-control" type="Tel" height="30" width="300" maxlength="50"   ></asp:textbox>
+                                        
                                     </td>
                                     <td>
                                         <asp:requiredfieldvalidator id="RequiredFieldValidator5" runat="server" errormessage="Campos Obligatorios" controltovalidate="TelefonoTextbox" font-bold="True" forecolor="Red" validationgroup="Guardar">*</asp:requiredfieldvalidator>
