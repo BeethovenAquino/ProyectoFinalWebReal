@@ -3,6 +3,7 @@ using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -51,6 +52,25 @@ namespace ProyectoFinalWeb.UI.Registros
         }
 
 
+        
+        public bool VerificarCedula(string cedula)
+        {
+            Expression<Func<Cliente, bool>> filtro = x => true;
+            bool paso = false;
+            filtro = x => x.Cedula.Contains(cedula);
+
+            if (ClienteBLL.GetList(filtro).Count() != 0)
+            {
+
+              Utilities.Utils.ShowToastr(this, "Ya Existe un Cliente con este Numero de Cedula", "Fallo", "error");
+
+                paso = true;
+            }
+
+            return paso;
+
+        }
+
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -59,27 +79,44 @@ namespace ProyectoFinalWeb.UI.Registros
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             Cliente cliente = LlenarClase();
-
+            
             bool paso = false;
+
+            
+            
 
             if (Page.IsValid)
             {
+                
+
                 if (cliente.ClienteID == 0)
                 {
-                    paso = ClienteBLL.Guardar(cliente);
+                    
 
+                    if (VerificarCedula(cliente.Cedula) == true)
+                    {
+                        return;
+                    }
+                    else { paso = ClienteBLL.Guardar(cliente); }
+                        
+                 
+                    
+                    
+                    
                 }
                 else
                 {
                     var verificar = ClienteBLL.Buscar(Utilities.Utils.ToInt(ClienteIDTextbox.Text));
 
-                    if (verificar != null)
+                    if (verificar != null )
                     {
                         paso = ClienteBLL.Modificar(cliente);
+
+
                     }
                     else
                     {
-                        //Utilities.Utils.ShowToastr(this, "Cuenta No Existe", "Fallido", "error");
+                        Utilities.Utils.ShowToastr(this, "Cliente No Existe", "Fallido", "error");
                         return;
                     }
                 }
@@ -87,13 +124,13 @@ namespace ProyectoFinalWeb.UI.Registros
                 if (paso)
 
                 {
-                    //Utilities.Utils.ShowToastr(this, "Cuenta Registrada", "Exito", "Exito");
+                    Utilities.Utils.ShowToastr(this, "Cliente Registrada", "Exito", "Exito");
                 }
 
                 else
 
                 {
-                    //Utilities.Utils.ShowToastr(this, "No pudo Guardarse la cuenta", "ERROR", "error");
+                    Utilities.Utils.ShowToastr(this, "No pudo Guardarse la Cliente", "ERROR", "error");
                 }
                 Limpiar();
                 return;
@@ -108,13 +145,13 @@ namespace ProyectoFinalWeb.UI.Registros
 
             if (cuenta == null)
             {
-                //Utilities.Utils.ShowToastr(this, "No se puede Eliminar", "error");
+                Utilities.Utils.ShowToastr(this, "No se puede Eliminar", "error");
             }
 
             else
             {
                 ClienteBLL.Eliminar(id);
-                //Utilities.Utils.ShowToastr(this, "Cuenta Eliminada", "Exito");
+                Utilities.Utils.ShowToastr(this, "Cliente Eliminada", "Exito");
                 Limpiar();
             }
         }
@@ -126,14 +163,12 @@ namespace ProyectoFinalWeb.UI.Registros
             if (cuentas != null)
             {
                 LlenaCampos(cuentas);
-                //Utilities.Utils.ShowToastr(this, "Busqueda exitosa", "Exito");
+                Utilities.Utils.ShowToastr(this, "Busqueda exitosa", "Exito");
             }
             else
             {
                 Limpiar();
-                //Utilities.Utils.ShowToastr(this,
-                //    "No se pudo encontrar la cuenta ",
-                //    "Error", "error");
+                Utilities.Utils.ShowToastr(this, "No se pudo encontrar la Cliente ", "Error", "error");
             }
 
         }

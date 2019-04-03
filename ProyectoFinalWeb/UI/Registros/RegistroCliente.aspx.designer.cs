@@ -13,6 +13,15 @@ namespace ProyectoFinalWeb.UI.Registros {
     public partial class RegistroCliente {
         
         /// <summary>
+        /// ScriptManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -103,22 +112,22 @@ namespace ProyectoFinalWeb.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox CedulaTextbox;
         
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// MaskedEditExtendercedula control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtendercedula;
         
         /// <summary>
-        /// RegularExpressionValidator3 control.
+        /// CedulaValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CedulaValidator;
         
         /// <summary>
         /// Label8 control.
@@ -202,6 +211,15 @@ namespace ProyectoFinalWeb.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox TelefonoTextbox;
         
         /// <summary>
+        /// MaskedEditExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender;
+        
+        /// <summary>
         /// RequiredFieldValidator5 control.
         /// </summary>
         /// <remarks>
@@ -209,15 +227,6 @@ namespace ProyectoFinalWeb.UI.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
-        
-        /// <summary>
-        /// RegularExpressionValidator4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
         
         /// <summary>
         /// Label6 control.
@@ -247,13 +256,13 @@ namespace ProyectoFinalWeb.UI.Registros {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
-        /// RegularExpressionValidator5 control.
+        /// Regularexpressionvalidator10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Regularexpressionvalidator10;
         
         /// <summary>
         /// ErrorLabel control.

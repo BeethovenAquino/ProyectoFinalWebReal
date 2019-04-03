@@ -11,7 +11,7 @@
                     <asp:ListItem>ArticuloID</asp:ListItem>
                     <asp:ListItem>Nombre</asp:ListItem>
                     <asp:ListItem>Marca</asp:ListItem>
-                    <asp:ListItem>Todos</asp:ListItem>
+                    <asp:ListItem Selected="True">Todos</asp:ListItem>
                     
 
                 </asp:DropDownList>

@@ -92,7 +92,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="PrecioVentaTextbox" runat="server" class="form-control" Height="30" Width="300" MaxLength="80" type="Number" OnTextChanged="PrecioVentaTextbox_TextChanged"></asp:TextBox>
+                                        <asp:TextBox ID="PrecioVentaTextbox" runat="server" class="form-control" Height="30" Width="300" MaxLength="80" type="Number" AutoPostBack="true" OnTextChanged="PrecioVentaTextbox_TextChanged"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RegularExpressionValidator ID="Regularexpressionvalidator1" runat="server" ErrorMessage='Campo "Balance" solo acepta numeros' ControlToValidate="PrecioVentaTextbox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>

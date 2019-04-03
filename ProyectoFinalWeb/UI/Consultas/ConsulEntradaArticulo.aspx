@@ -11,7 +11,7 @@
                 <asp:DropDownList class="form-control" ID="TipodeFiltro" runat="server" for="TipodeFiltro" Width="200px">
                     <asp:ListItem>EntradaID</asp:ListItem>
                     <asp:ListItem>Articulo</asp:ListItem>
-                    <asp:ListItem>Todos</asp:ListItem>
+                    <asp:ListItem Selected="true">Todos</asp:ListItem>
                     
 
 

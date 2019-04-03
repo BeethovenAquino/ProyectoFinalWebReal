@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="ArticuloBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Clientes.cs" />
+    <Compile Include="EntradaTests.cs" />
+    <Compile Include="FacturacionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

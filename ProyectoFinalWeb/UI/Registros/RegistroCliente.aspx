@@ -1,8 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="RegistroCliente.aspx.cs" Inherits="ProyectoFinalWeb.UI.Registros.RegistroCliente" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
 
     
       <div class="form-group container">
@@ -74,11 +77,13 @@
                                 <tr>
                                     <td>
                                         <asp:textbox id="CedulaTextbox"  validationgroup="Guardar" runat="server" class="form-control" height="30" width="300" maxlength="50" type="Cedula "  ></asp:textbox>
+                                        <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtendercedula" BehaviorID="Cedulainput_MaskedEditExtender" MaskType="Number" ClearMaskOnLostFocus="true" runat="server" TargetControlID="CedulaTextbox" Mask="999-9999999-9" />
+
                                         
                                     </td>
+                                    <asp:RequiredFieldValidator ID="CedulaValidator" runat="server" Text="*" ValidateRequestMode="Inherit" ControlToValidate="CedulaTextbox" ValidationGroup="Guardar" ForeColor="Red" Font-Bold="True" Font-Size="X-Large"></asp:RequiredFieldValidator>
                                     <td>
-                                        <asp:requiredfieldvalidator id="RequiredFieldValidator4" runat="server" errormessage="Campos Obligatorios" controltovalidate="CedulaTextbox" font-bold="True" forecolor="Red" validationgroup="Guardar">*</asp:requiredfieldvalidator>
-                                        <asp:regularexpressionvalidator id="RegularExpressionValidator3" runat="server" errormessage="Solo Letras" controltovalidate="CedulaTextbox" font-bold="True" forecolor="Red" validationexpression="[A-Za-z ]*">*</asp:regularexpressionvalidator>
+                                       
                                     </td>
                                     <td></td>
                                 </tr>
@@ -144,11 +149,13 @@
                                 <tr>
                                     <td>
                                         <asp:textbox id="TelefonoTextbox"  validationgroup="Guardar" runat="server" class="form-control" type="Tel" height="30" width="300" maxlength="50"   ></asp:textbox>
+                                        <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender" BehaviorID="Telefonoinput_MaskedEditExtender" MaskType="Number " ClearMaskOnLostFocus="true" runat="server" TargetControlID="TelefonoTextbox" Mask="(999)-999-9999" />
+
                                         
                                     </td>
                                     <td>
-                                        <asp:requiredfieldvalidator id="RequiredFieldValidator5" runat="server" errormessage="Campos Obligatorios" controltovalidate="TelefonoTextbox" font-bold="True" forecolor="Red" validationgroup="Guardar">*</asp:requiredfieldvalidator>
-                                        <asp:regularexpressionvalidator id="RegularExpressionValidator4" runat="server" errormessage="Solo Letras" controltovalidate="TelefonoTextbox" font-bold="True" forecolor="Red" validationexpression="[A-Za-z ]*">*</asp:regularexpressionvalidator>
+                                        <asp:requiredfieldvalidator id="RequiredFieldValidator5" runat="server" errormessage="Campos Obligatorios" controltovalidate="TelefonoTextbox" font-bold="True" forecolor="Red" maxlength="10" minimunlength="10" validationgroup="Guardar">*</asp:requiredfieldvalidator>
+                                        
                                     </td>
                                     <td></td>
                                 </tr>
@@ -173,7 +180,7 @@
                                     </td>
                                     <td>
                                         <asp:requiredfieldvalidator id="RequiredFieldValidator6" runat="server" errormessage="Campos Obligatorios" controltovalidate="DeudaTextbox" font-bold="True" forecolor="Red" validationgroup="Guardar">*</asp:requiredfieldvalidator>
-                                        <asp:regularexpressionvalidator id="RegularExpressionValidator5" runat="server" errormessage="Solo Letras" controltovalidate="DeudaTextbox" font-bold="True" forecolor="Red" validationexpression="[A-Za-z ]*">*</asp:regularexpressionvalidator>
+                                        <asp:regularexpressionvalidator id="Regularexpressionvalidator10" runat="server" errormessage='Campo " solo acepta numeros' controltovalidate="DeudaTextbox" validationexpression="^[0-9]*" text="*" forecolor="Red" display="Dynamic" tooltip="Solo se aceptan numeros" validationgroup="Guardar"></asp:regularexpressionvalidator>
                                     </td>
                                     <td></td>
                                 </tr>

@@ -14,7 +14,7 @@
                     <asp:ListItem>Direccion</asp:ListItem>
                     <asp:ListItem>Cedula</asp:ListItem>
                     <asp:ListItem>Telefono</asp:ListItem>
-                    <asp:ListItem>Todos</asp:ListItem>
+                    <asp:ListItem Selected="true">Todos</asp:ListItem>
 
 
                     

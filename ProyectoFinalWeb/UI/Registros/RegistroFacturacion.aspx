@@ -168,7 +168,7 @@
                         </table>
                     </div>
                     <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="AgregarButton" ValidationGroup="Buscar" runat="server" class="btn btn-info" Text="Agregar" OnClick="AgregarButton_Click" />
-                    <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="RemoverButton" ValidationGroup="Buscar" runat="server" class="btn btn-info" Text="Remover" OnClick="RemoverButton_Click" />
+                    
                 </div>
 
                 <%--FacturacionGridView--%>

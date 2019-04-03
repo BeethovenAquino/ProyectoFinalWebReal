@@ -417,24 +417,43 @@ namespace ProyectoFinalWeb.UI.Registros
 
         protected void EliminarButtonDetalle_Click(object sender, EventArgs e)
         {
-            if(ViewState["IndexDetalle"] !=null)
+            List<FacturacionDetalle> detalles = new List<FacturacionDetalle>();
+            if (ViewState["IndexDetalle"] != null)
             {
-                var Importe = ((List<FacturacionDetalle>)ViewState["Facturacion"]).ElementAt((int)ViewState["IndexDetalle"]).Importe;
+                detalles = (List<FacturacionDetalle>)ViewState["Facturacion"];
+                
+               detalles.ElementAt((int)ViewState["IndexDetalle"]);
+
+
                 //Todo: Con esta variable tienes que restarsela al el monto total 
 
-                //Aqui restalo 
-
-
+                
                 //Aqui estoy elimianndo de el ViewState 
-                ((List<FacturacionDetalle>)ViewState["Facturacion"]).RemoveAt((int)ViewState["IndexDetalle"]);
+                ((List<FacturacionDetalle>)ViewState["Facturacion"]).RemoveAt((int)ViewState["IndexDetalle"]) ;
 
+                ViewState["Facturacion"] = detalles;
+
+
+                int subtotal = 0;
+                int total = 0;
+
+                foreach (var item in detalles)
+                {
+                    subtotal += item.Importe;
+                }
+
+                SubtotalTextBox.Text = subtotal.ToString();
+
+                total += Convert.ToInt32(SubtotalTextBox.Text);
+
+                TotalTextBox.Text = total.ToString();
                 FacturacionGridView.DataSource = ViewState["Facturacion"];
                 FacturacionGridView.DataBind();
 
             }
             else
             {
-                //aqui
+                Utilities.Utils.ShowToastr(this, "Debe Seleccionar la fila", "Fallido", "error");
             }
         }
     }

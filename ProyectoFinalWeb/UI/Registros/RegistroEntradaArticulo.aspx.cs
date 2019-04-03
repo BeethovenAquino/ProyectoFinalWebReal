@@ -91,7 +91,7 @@ namespace ProyectoFinalWeb.UI.Registros
                     }
                     else
                     {
-                        //Utilities.Utils.ShowToastr(this, "Cuenta No Existe", "Fallido", "error");
+                        Utilities.Utils.ShowToastr(this, "Entrada de articulo No Existe", "Fallido", "error");
                         return;
                     }
                 }
@@ -99,13 +99,13 @@ namespace ProyectoFinalWeb.UI.Registros
                 if (paso)
 
                 {
-                    //Utilities.Utils.ShowToastr(this, "Cuenta Registrada", "Exito", "Exito");
+                    Utilities.Utils.ShowToastr(this, "Entrada de articulo Registrada", "Exito", "Exito");
                 }
 
                 else
 
                 {
-                    //Utilities.Utils.ShowToastr(this, "No pudo Guardarse la cuenta", "ERROR", "error");
+                    Utilities.Utils.ShowToastr(this, "No pudo Guardarse la Entrada de articulo", "ERROR", "error");
                 }
                 Limpiar();
                 return;
@@ -120,13 +120,13 @@ namespace ProyectoFinalWeb.UI.Registros
 
             if (cuenta == null)
             {
-                //Utilities.Utils.ShowToastr(this, "No se puede Eliminar", "error");
+                Utilities.Utils.ShowToastr(this, "No se puede Eliminar", "error");
             }
 
             else
             {
                 EntradaArticulosBLL.Eliminar(id);
-                //Utilities.Utils.ShowToastr(this, "Cuenta Eliminada", "Exito");
+                Utilities.Utils.ShowToastr(this, "Entrada de articulo Eliminada", "Exito");
                 Limpiar();
             }
         }
@@ -138,14 +138,14 @@ namespace ProyectoFinalWeb.UI.Registros
             if (entradaArticulos != null)
             {
                 LlenaCampos(entradaArticulos);
-                //Utilities.Utils.ShowToastr(this, "Busqueda exitosa", "Exito");
+                Utilities.Utils.ShowToastr(this, "Busqueda exitosa", "Exito");
             }
             else
             {
                 Limpiar();
-                //Utilities.Utils.ShowToastr(this,
-                //    "No se pudo encontrar la cuenta ",
-                //    "Error", "error");
+                Utilities.Utils.ShowToastr(this,
+                    "No se pudo encontrar la Entrada de articulo ",
+                  "Error", "error");
             }
 
         }
@@ -170,7 +170,7 @@ namespace ProyectoFinalWeb.UI.Registros
 
             if (precioVenta < precioCompra)
             {
-                //Utilities.Utils.ShowToastr(this, "Va a tener perdida", "error");
+                Utilities.Utils.ShowToastr(this, "Va a tener perdida", "error");
             }
 
             else

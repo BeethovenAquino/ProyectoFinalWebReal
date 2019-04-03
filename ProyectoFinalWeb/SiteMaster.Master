@@ -14,6 +14,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script> src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+    <link href="content/toastr.css" rel="stylesheet" />
+    <script src="Scripts/toastr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <style>
         .fakeimg {
             height: 200px;
@@ -49,11 +52,8 @@
                         <a class="dropdown-item" runat="server" href="~/UI/Registros/Inversion.aspx">Inversion de la empresa</a>
                         <a class="dropdown-item" runat="server" href="~/UI/Registros/RegistroArticulo.aspx">Registro de Articulos</a>
                         <a class="dropdown-item" runat="server" href="~/UI/Registros/RegistroCliente.aspx">Registro de Cliente</a>
-                        <a class="dropdown-item" runat="server" href="~/UI/Registros/RegistroUsuario.aspx">Registro de Usuarios</a>
                         <a class="dropdown-item" runat="server" href="~/UI/Registros/RegistroEntradaArticulo.aspx">Registro de Entrada de Ariticulos</a>
-                        <a class="dropdown-item" runat="server" href="~/UI/Registros/RegistroInversion.aspx">Registro de Entrada de Inversion</a>
                         <a class="dropdown-item" runat="server" href="~/UI/Registros/RegistroFacturacion.aspx">Registro de Facturacion</a>
-                        <a class="dropdown-item" runat="server" href="~/UI/Registros/RegistroPagoCliente.aspx">Pago De Cliente</a>
                         
                     </div>
                 </li>
@@ -68,25 +68,12 @@
                         <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsulEntradaArticulo.aspx">Consulta de Entrada de Ariticulos</a>
                         <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsultaInversion.aspx">Consulta de Entrada de Inversion</a>
                         <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsultaFacturacion.aspx">Consulta de Facturacion</a>
-                        <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsultaPago.aspx">Consulta Pago De Cliente</a>
+                        
                         
                     </div>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" runat="server" href="~/UI/Reportes/ReporteArticulo.aspx">Reporte de Articulos</a>
-                        <a class="dropdown-item" runat="server" href="~/UI/Reportes/ReporteCliente.aspx">Reporte de Cliente</a>
-                        <a class="dropdown-item" runat="server" href="~/UI/Reportes/ReporteUsuario.aspx">Reporte de Usuarios</a>
-                        <a class="dropdown-item" runat="server" href="#">Registro de Entrada de Ariticulos</a>
-                        <a class="dropdown-item" runat="server" href="#">Reporte de Entrada de Inversion</a>
-                        <a class="dropdown-item" runat="server" href="#">Reporte de Facturacion</a>
-                        <a class="dropdown-item" runat="server" href="#">Reporte Pago De Cliente</a>
-                        
-                    </div>
-                </li>
+               
             </ul>
         </div>
     </nav>
